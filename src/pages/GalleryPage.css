@@ -1,0 +1,33 @@
+.gallery-page {
+  min-height: 100vh;
+  padding: 8rem 0 4rem 0;
+  background-color: #f9f9f9;
+}
+
+.page-title {
+  text-align: center;
+  font-size: 3rem;
+  font-weight: 600;
+  margin-bottom: 3rem;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: #333;
+}
+
+.albums-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+@media (max-width: 768px) {
+  .gallery-page {
+    padding: 6rem 0 2rem 0;
+  }
+
+  .page-title {
+    font-size: 2rem;
+  }
+}
+
+

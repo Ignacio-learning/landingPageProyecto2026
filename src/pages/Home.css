@@ -1,0 +1,57 @@
+.home {
+  height: 100vh;
+  overflow: hidden;
+}
+
+.hero {
+  height: 100vh;
+  background-image: url('https://live.staticflickr.com/4625/39717195702_8d19af17aa_h.jpg');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.hero-content {
+  position: relative;
+  text-align: center;
+  color: #fff;
+  z-index: 1;
+}
+
+.hero-content h1 {
+  font-size: 4rem;
+  font-weight: 700;
+  margin: 0;
+  letter-spacing: 2px;
+}
+
+.hero-content h2 {
+  font-size: 1.5rem;
+  font-weight: 300;
+  margin: 0.5rem 0 0 0;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+}
+
+@media (max-width: 768px) {
+  .hero-content h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero-content h2 {
+    font-size: 1rem;
+  }
+}
