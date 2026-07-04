@@ -1,14 +1,16 @@
-import { useLocation } from 'react-router-dom';
+import { site } from '../data/site';
+import { useFooterVariant } from '../hooks/useFooterVariant';
 import './Footer.css';
 
 const Footer = () => {
-  const { pathname } = useLocation();
-  const isHome = pathname === '/';
+  const footerVariant = useFooterVariant();
 
   return (
-    <footer className={`site-footer ${isHome ? 'site-footer--overlay' : 'site-footer--static'}`}>
+    <footer className={`site-footer ${footerVariant}`}>
       <div className="footer-content">
-        <p className="footer-copy">&copy; {new Date().getFullYear()} Joaquín Rocuant. Todos los derechos reservados.</p>
+        <p className="footer-copy">
+          &copy; {new Date().getFullYear()} {site.name}. {site.copyright}
+        </p>
       </div>
     </footer>
   );

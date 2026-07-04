@@ -1,4 +1,6 @@
 import { Link, useLocation } from 'react-router-dom';
+import { navLinks } from '../data/nav';
+import { site } from '../data/site';
 import './Navbar.css';
 
 const Navbar = () => {
@@ -8,41 +10,19 @@ const Navbar = () => {
     <nav className="navbar">
       <div className="navbar-container">
         <Link to="/" className="navbar-logo">
-          Joaquín Rocuant
+          {site.name}
         </Link>
         <ul className="navbar-menu">
-          <li className="navbar-item">
-            <Link 
-              to="/" 
-              className={`navbar-link ${location.pathname === '/' ? 'active' : ''}`}
-            >
-              Inicio
-            </Link>
-          </li>
-          <li className="navbar-item">
-            <Link 
-              to="/galeria" 
-              className={`navbar-link ${location.pathname === '/galeria' ? 'active' : ''}`}
-            >
-              Galería
-            </Link>
-          </li>
-          <li className="navbar-item">
-            <Link 
-              to="/about" 
-              className={`navbar-link ${location.pathname === '/about' ? 'active' : ''}`}
-            >
-              Sobre mí
-            </Link>
-          </li>
-          <li className="navbar-item">
-            <Link 
-              to="/contact" 
-              className={`navbar-link ${location.pathname === '/contact' ? 'active' : ''}`}
-            >
-              Contacto
-            </Link>
-          </li>
+          {navLinks.map((link) => (
+            <li key={link.to} className="navbar-item">
+              <Link
+                to={link.to}
+                className={`navbar-link ${location.pathname === link.to ? 'active' : ''}`}
+              >
+                {link.label}
+              </Link>
+            </li>
+          ))}
         </ul>
       </div>
     </nav>

@@ -1,19 +1,20 @@
-import { useParams, Link } from 'react-router-dom';
-import { albums } from '../data/photos';
+import { Link } from 'react-router-dom';
+import { albumPageContent } from '../data/gallery';
+import { useAlbum } from '../hooks/useAlbum';
 import Gallery from '../components/Gallery';
 import './AlbumPage.css';
 
 const AlbumPage = () => {
-  const { albumId } = useParams();
-  const album = albums.find((a) => a.id === albumId);
+  const { album } = useAlbum();
+  const { notFoundTitle, backLabel, backLabelWithArrow } = albumPageContent;
 
   if (!album) {
     return (
       <div className="album-page fade-in">
         <div className="container">
-          <h1>Álbum no encontrado</h1>
+          <h1>{notFoundTitle}</h1>
           <Link to="/galeria" className="back-link">
-            Volver a la galería
+            {backLabel}
           </Link>
         </div>
       </div>
@@ -28,7 +29,7 @@ const AlbumPage = () => {
       </div>
       <div className="container">
         <Link to="/galeria" className="back-link">
-          ← Volver a la galería
+          {backLabelWithArrow}
         </Link>
         <Gallery photos={album.photos} />
       </div>
