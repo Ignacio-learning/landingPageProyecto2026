@@ -188,6 +188,11 @@
   color: #9b2226;
 }
 
+.form-captcha {
+  display: flex;
+  justify-content: flex-start;
+}
+
 @media (max-width: 768px) {
   .contact {
     padding: 6rem 0 2rem 0;
